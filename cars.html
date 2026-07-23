@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>السيارات - كرين مدني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">كرين <span>مدني</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">الرئيسية</a>
+            <a href="about.html">عن الموقع</a>
+            <a href="cars.html" class="active">السيارات</a>
+            <a href="contact.html">تواصل</a>
+            <a href="login.html" class="nav-cta">دخول</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <h1><i class="fas fa-car"></i> جميع السيارات</h1>
+        <p>اختر سيارتك المثالية من مجموعتنا المتميزة</p>
+    </div>
+
+    <section class="section section-light">
+        <div class="container">
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:24px;">
+                <button class="btn btn-primary" onclick="showAddCarMessage()">➕ إضافة سيارة</button>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <input type="text" id="searchInput" placeholder="🔍 ابحث عن سيارة..." style="padding:10px 15px; border-radius:30px; border:1px solid var(--border); min-width:200px;">
+                    <select id="cityFilter" style="padding:10px 15px; border-radius:30px; border:1px solid var(--border); background:white;"></select>
+                </div>
+            </div>
+            <div class="cars-grid" id="allCarsGrid"></div>
+        </div>
+    </section>
+
+    <!-- مودال التفاصيل -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-car"></i> <span id="detailTitle">تفاصيل السيارة</span></h3>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <!-- مودال الحجز -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-calendar-check"></i> حجز موعد لسيارة: <span id="bookingCarTitle"></span></h3>
+                <button class="modal-close" onclick="closeBookingModal()">✕</button>
+            </div>
+            <div id="bookingContent">
+                <form id="bookingForm">
+                    <input type="hidden" id="bookingCarId" value="">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="visitorName" placeholder="أدخل اسمك" required />
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" id="visitorPhone" placeholder="مثال: 0912345678" required />
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني (اختياري)</label>
+                        <input type="email" id="visitorEmail" placeholder="example@domain.com" />
+                    </div>
+                    <div class="form-group">
+                        <label>التاريخ</label>
+                        <input type="date" id="bookingDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label>الوقت</label>
+                        <input type="time" id="bookingTime" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;" id="bookingSubmitBtn">📤 تأكيد الحجز</button>
+                </form>
+                <div id="bookingMessage" style="margin-top:16px; text-align:center;"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">كرين <span>مدني</span></div>
+            <p>منصتك الموثوقة لشراء وبيع السيارات المستعملة.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 كرين مدني. جميع الحقوق محفوظة.</span>
+                <span>🇸🇩 السودان</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
